@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ShimmerTest</string>
-    <string name="shimmer">I am a shimmer text</string>
+    <string name="shimmer">I am shimmer text</string>
+    <string name="Hello">Hello,下面是ShimmerTest···</string>
+    <string name="toggle_animation">Toggle animation</string>
+    <string name="shimmerButton">I am shimmer button</string>
 </resources>
