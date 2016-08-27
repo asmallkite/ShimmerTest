@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ShimmerTest</string>
+    <string name="shimmer">I am a shimmer text</string>
+</resources>
