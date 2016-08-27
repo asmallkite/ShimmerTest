@@ -14,21 +14,21 @@ public class MainActivity extends AppCompatActivity {
     private ShimmerButton shimmerButton;
     private Shimmer shimmer;
     private Shimmer shimmer_btn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //绑定控件
         shimmerTextView = (ShimmerTextView) findViewById(R.id.shimmer_tv);
         shimmerButton = (ShimmerButton)findViewById(R.id.shimmer_btn);
 
         setShimmerText();
         setShimmerBtn();
-
-
     }
-   private void setShimmerText() {
+    /**
+     * 自定义设置 shimmerText 的属性
+     */
+    private void setShimmerText() {
        shimmer = new Shimmer();
        shimmer.setRepeatCount(5);//闪烁的次数，0-一次  1-两次    2-三次    以此类推
        shimmer.setDuration(1000);//每次闪烁的时间长短
@@ -36,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
        shimmer.setDirection(Shimmer.ANIMATION_DIRECTION_RTL);//闪烁的方向,接受int值，Shimmer.ANIMATION_DIRECTION_RTL=1，表示right turn left        Shimmer.ANIMATION_DIRECTION_LTR=0,left turn right
        shimmer.start(shimmerTextView);
    }
-
+    /**
+     * 自定义设置 shimmerButton 的属性
+     */
     private void setShimmerBtn() {
         shimmer_btn = new Shimmer();
 
@@ -48,20 +50,25 @@ public class MainActivity extends AppCompatActivity {
         shimmer_btn.start(shimmerButton);
     }
 
+    /**
+     * 设置 按钮的功能
+     */
     public void toggleAnimation (View target) {
+        //如果shimmer 已经被创建，并且正在闪烁，则取消闪烁
+        //否则 setShimmerText
         if (shimmer != null && shimmer.isAnimating()) {
             shimmer.cancel();
         }else {
            setShimmerText();
         }
 
+        //如果shimmer_btn 已经被创建，并且正在闪烁，则取消闪烁
+        //否则 setShimmerBtn
         if (shimmer_btn != null && shimmer_btn.isAnimating()) {
             shimmer_btn.cancel();
         } else {
             setShimmerBtn();
         }
-
-
 
     }
 }
